@@ -31,3 +31,8 @@ jobs:
         docker push ghcr.io/mishomihov/go-ethereum:with_contracts_${{ github.run_number }}
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Run tests againts image with predeployed contracts
+      run: |
+        cd hardhat
+        npx hardhat test --network localhost

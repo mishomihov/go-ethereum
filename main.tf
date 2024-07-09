@@ -61,7 +61,7 @@ resource "kubernetes_deployment" "example" {
 
       spec {
             container {
-            image = "ghcr.io/mishomihov/go-ethereum:test-cloud"
+            image = "ghcr.io/mishomihov/go-ethereum:latest"
             name  = "go-ethereum-dev"
 
                 command = [

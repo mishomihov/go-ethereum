@@ -22,6 +22,10 @@ FROM alpine:latest
 RUN apk add --no-cache ca-certificates
 COPY --from=builder /go-ethereum/build/bin/geth /usr/local/bin/
 
+ADD additional_account/UTC--2024-07-09T07-45-45.233346514Z--39650bafc38a3ca1a82e2f3814124200f835d48e /dev-chain/keystore/UTC--2024-07-09T07-45-45.233346514Z--39650bafc38a3ca1a82e2f3814124200f835d48e
+ADD additional_account/UTC--2024-07-09T07-52-25.138627406Z--814d129498245ab789debfe2824d8e2eb13cc2a5 /dev-chain/keystore/UTC--2024-07-09T07-52-25.138627406Z--814d129498245ab789debfe2824d8e2eb13cc2a5
+ADD additional_account/pass.txt /pass.txt
+
 EXPOSE 8545 8546 30303 30303/udp
 ENTRYPOINT ["geth"]
 

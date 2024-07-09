@@ -6,8 +6,4 @@ services:
     container_name: geth-local
     ports:
       - "8545:8545"
-    volumes:
-      - ./additional_account/UTC--2024-07-09T07-45-45.233346514Z--39650bafc38a3ca1a82e2f3814124200f835d48e:/dev-chain/keystore/UTC--2024-07-09T07-45-45.233346514Z--39650bafc38a3ca1a82e2f3814124200f835d48e
-      - ./additional_account/UTC--2024-07-09T07-52-25.138627406Z--814d129498245ab789debfe2824d8e2eb13cc2a5:/dev-chain/keystore/UTC--2024-07-09T07-52-25.138627406Z--814d129498245ab789debfe2824d8e2eb13cc2a5
-      - ./additional_account/pass.txt:/pass.txt
     command: --dev --datadir dev-chain --http --http.api personal,eth,web3,net --http.addr "0.0.0.0" --password /pass.txt

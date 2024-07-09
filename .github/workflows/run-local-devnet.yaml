@@ -23,3 +23,11 @@ jobs:
         npm install @nomicfoundation/hardhat-toolbox --save-dev
         cd hardhat
         echo 'y' | npx hardhat ignition deploy ./ignition/modules/Lock.js --network localhost
+
+    -name: Create snapshot of the Docker Image
+    run: |
+      docker commit geth-local ghcr.io/mishomihov/go-ethereum:with_contracts_${{ github.run_number }}
+      echo $GH_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
+      docker push ghcr.io/mishomihov/go-ethereum:with_contracts_${{ github.run_number }}
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

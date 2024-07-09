@@ -22,4 +22,4 @@ jobs:
         npm install --save-dev hardhat
         npm install @nomicfoundation/hardhat-toolbox --save-dev
         cd hardhat
-        npx hardhat ignition deploy ./ignition/modules/Lock.js --network localhost
+        echo 'y' | npx hardhat ignition deploy ./ignition/modules/Lock.js --network localhost

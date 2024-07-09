@@ -20,5 +20,6 @@ jobs:
     - name: Deploy HardHat Project
       run: |
         npm install --save-dev hardhat
+        npm install @nomicfoundation/hardhat-toolbox --save-dev
         cd hardhat
         npx hardhat ignition deploy ./ignition/modules/Lock.js --network localhost

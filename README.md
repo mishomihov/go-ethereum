@@ -1,3 +1,11 @@
+## Explanations:
+
+1. The Dockerfile is changed so it adds the content of the "additional_account" folder to the "/dev-chain/keystore" folder in the container filesystem. Probably there is a better solution, but the HardHat sample project required at least two accounts for successful contract deployment and that's the solution I found with my limited blockchain knowledge.
+
+2. As described at the end of the terraform file the go-ethereum dev container is only deployed and probably not accesible from internet. This is done to save some time.
+
+3. This way of deploying blockscout is probably not the correct one and it seems to not be working perfectly. There is definitely a better way.
+
 ## Go Ethereum
 
 Golang execution layer implementation of the Ethereum protocol.

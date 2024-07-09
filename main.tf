@@ -1,19 +1,12 @@
-# main.tf
-
 provider "google" {
   project = "nimble-cortex-428909-b2"
-  region  = "europe-central2"  # Choose your preferred region
+  region  = "europe-central2" 
   credentials = file("/home/misho/limechain/nimble-cortex-428909-b2-3b826e263ed6.json")
 }
 
-# resource "google_service_account" "default" {
-#   account_id   = "limechain"
-#   display_name = "limechain"
-# }
-
 resource "google_container_cluster" "primary" {
   name     = "limechain-k8s-test-cluster2"
-  location = "europe-central2"  # Replace with your preferred region variable if dynamic
+  location = "europe-central2"  
   
   remove_default_node_pool = true
   initial_node_count       = 1
@@ -22,13 +15,13 @@ resource "google_container_cluster" "primary" {
 
 resource "google_container_node_pool" "default_pool" {
   name       = "default-pool"
-  location   = "europe-central2"  # Replace with your preferred region variable if dynamic
+  location   = "europe-central2"
   cluster    = google_container_cluster.primary.name
   node_count = 1
 
   node_config {
     preemptible  = true
-    machine_type = "e2-medium"  # Customize as needed
+    machine_type = "e2-medium"
     service_account = "limechain@nimble-cortex-428909-b2.iam.gserviceaccount.com"
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
@@ -37,7 +30,7 @@ resource "google_container_node_pool" "default_pool" {
 }
 
 provider "kubernetes" {
-  config_path = "~/.kube/config"  # Path to your kubeconfig file
+  config_path = "~/.kube/config"
 }
 
 resource "kubernetes_deployment" "example" {

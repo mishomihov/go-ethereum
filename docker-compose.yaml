@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  geth:
+    image: ghcr.io/mishomihov/go-ethereum:latest
+    container_name: geth-local
+    ports:
+      - "8545:8545"
+    command: --dev --http --http.api personal,eth,web3,net --http.addr "0.0.0.0"
